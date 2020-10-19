@@ -120,3 +120,8 @@ function PPL3(){
 function PPL4(){
 	PS1='%K{#FFFFFF}%F{#232323}$User2%F{#F12345}@%F{#AE23FF}%m%f %k%F{#FFFFFF}%K{#121212} %f%~%k%F{#121212}%K{#121212}%f%F{#FFFFFF} %k%f '  
 }
+
+function PPL5(){
+  PS1='%F{#5555ff}╭%f%F{#5555ff}[%f%~%F{#5555ff}]%f
+%F{#5500ff}╰╴%f%F{#5500ff}[%f$User4%F{#5500ff}]%f '
+}
