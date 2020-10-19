@@ -3,6 +3,7 @@
 #=============
 # System Tools
 #=============
+source ~/zsh/GitTools.sh
 
 #======
 # Vars
@@ -48,55 +49,15 @@ GetHome(){
   fi
 }
 
-#=============
-# GitHub Tools
-#=============
 
-function Gits(){
-    G=$(file .git | sed 's/ //g')
 
-    if [[ $G == .git:directory ]]; then
-      echo -e "%K{#ff5977}  Master %k"
-    else 
-    fi
-}
-
-function GitStatus(){
-  sts1=$(git status | grep modified | awk '{print $1}' 2> /dev/null)
-
-  if [[ $sts1 = modified: ]]; then
-    echo -e "%F{#ffaa00} %f  Master %F{#FF0000}%f "
-  else
-    echo "%F{#ffaa00} %f  Master %F{#00FF00} %f "
-  fi
-}
-
-function Git_Status(){
-  G=$(file .git | sed 's/ //g')
-
-  if [[ $G == .git:directory ]]; then
-     echo -e "$(GitStatus)"
-  fi
-}
-
-function SimpleGitStatus(){
-  sts1=$(git status | grep modified | awk '{print $1}' 2> /dev/null)
-  
-  if [[ $sts1 = modified: ]]; then
-    echo -e " %F{#FF0000}─━╾╸(%F{#45ff30}%f  Master %F{#FF0000}🆕%f%F{#FF0000}) "
-  else
-  	echo " %F{#FF0000}─━╾╸(%F{#45ff30}%f  Master %F{#00FF00}🆗 %f%F{#FF0000})"
-  
-  fi
-  
-}
-
-function SimpleGit_Status(){
-  G=$(file .git | sed 's/ //g')
-
-  if [[ $G == .git:directory ]]; then
-     echo -e "$(SimpleGitStatus)"
-  fi
+ERROR(){
+  if [ "$?" -eq 0 ]
+    then
+    echo "%F{#00ff00}%f"
+  else 
+    echo "%F{#F00000}%f"
+fi
 }
 
 #========
@@ -122,6 +83,6 @@ function PPL4(){
 }
 
 function PPL5(){
-  PS1='%F{#5555ff}╭%f%F{#5555ff}[%f%~%F{#5555ff}]%f
-%F{#5500ff}╰╴%f%F{#5500ff}[%f$User4%F{#5500ff}]%f '
+  PS1='%F{#5555ff}╭%f%F{#5555ff}[%f%~%F{#5555ff}]%f$(Git-Status)
+%F{#5500ff}╰╴$(ERROR) %f%F{#5500ff}[%f$User4%F{#5500ff}]%f '
 }
