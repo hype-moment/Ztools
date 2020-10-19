@@ -118,5 +118,5 @@ function PPL3(){
 }
 
 function PPL4(){
-	PS1=' $User2) %m'
+	PS1='%K{#FFFFFF}%F{#232323}$User2%F{#F12345}@%F{#AE23FF}%m%f %k%F{#FFFFFF}%K{#121212} %f%~%k%F{#121212}%K{#121212}%f%F{#FFFFFF} %k%f '  
 }
