@@ -18,7 +18,7 @@ User4=" %n"
 Distro_Wm(){
 
 wmname=$(wmctrl -m | grep Name | sed 's/.*: //g')
-distroname="gentoo" #$(uname -n | sed 's/linux//g;s/[-"_]//g')
+distroname=$(uname -n | sed 's/linux//g;s/[-"_]//g')
 
 if [[ $distroname = arch ]]; then
   echo -e "%F{#0c81ff} %f $distroname %F{#d12345}$wmname%f "
@@ -36,6 +36,8 @@ elif [[ $distroname = manjaro ]]; then
   echo -e "%F{#008820}  %f $distroname %F{#d12345}$wmname%f "
 elif [[ $distroname = gentoo ]]; then
   echo -e "%F{#693494}  %f $distroname %F{#d12345}$wmname%f "
+elif [[ $distroname = mint ]]; then
+  echo -e "%F{#55ff7f}  %f $distroname %F{#d12345}$wmname%f "
 fi
 }
 
@@ -59,6 +61,8 @@ elif [[ $distroname = manjaro ]]; then
   echo -e "%F{#008820}  %f"
 elif [[ $distroname = gentoo ]]; then
   echo -e "%F{#693494}  %f"
+elif [[ $distroname = gentoo ]]; then
+  echo -e "%F{#55ff7f}  %f"
 fi
 }
 
