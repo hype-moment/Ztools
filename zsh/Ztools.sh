@@ -75,3 +75,39 @@ function delete(){
   | awk '{print $1}' | xargs -ro sudo pacman -Rscn
  
 }
+
+#=====
+# RPS1
+#=====
+
+PacNews_Cache_PPL1(){
+  cache=$(ls /var/cache/pacman/pkg | wc -l)
+
+  if [[ $cache > 100 ]]; then
+    echo "%F{#74a3c2}%K{#74a3c2}%F{#00FF00} %F{#121212}PacNews %f%F{#00FF00} %F{#121212}$cache cached packages%f %k%F{#74a3c2}%f"
+  fi
+}
+
+PacNews_Cache_PPL3(){
+  cache=$(ls /var/cache/pacman/pkg | wc -l)
+
+  if [[ $cache > 100 ]]; then
+    echo -e " %F{#FF0000}─(%f%F{#00ff00} %f PacNews %f%F{#00ff00} $cache %F{#FFFFFF}cached packages%f%F{#FF0000})─%f"
+  fi
+}
+
+PacNews_Cache_PPL4(){
+  cache=$(ls /var/cache/pacman/pkg | wc -l)
+
+  if [[ $cache > 100 ]]; then
+    echo -e "%K{#FFFFFF}%F{#00FF00}  %F{#121212}PacNews %f%F{#00ff00}  $cache %F{#121212}cached packages%f%k%F{#FFFFFF}%K{#121212} %k%f"
+  fi
+}
+
+PacNews_Cache_PPL5(){
+  cache=$(ls /var/cache/pacman/pkg | wc -l)
+
+  if [[ $cache > 100 ]]; then
+    echo -e "%F{#4b45ff}──┤%f %F{#00FF00}%f PacNews %F{#00ff00}  $cache %F{#FFFFFF}cached packages %f"
+  fi
+}
