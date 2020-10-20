@@ -9,6 +9,10 @@
 # Optional facilities = zsh-syntax-highlighting, zsh-autosuggestions  
 #====================================================================
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
 # Source plugins
 #===============
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -24,8 +28,8 @@ source ~/zsh/Zprompt.sh
 #===========
 unsetopt ALL_EXPORT
 setopt PROMPT_SUBST
-#Change your prompt here
-#Choose between PPL1, PPL2, PPL3, PPL4
+
+# Prompt
 PPL1
 
 # Set/unset ZSH options

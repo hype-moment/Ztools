@@ -6,6 +6,12 @@
 # exclusive use of arch linux and its derivatives
 #=================================================
 
+alias ztools-set1="sed -i 's/PPL.*/PPL1/g' ~/.zshrc && exec zsh"
+alias ztools-set2="sed -i 's/PPL.*/PPL2/g' ~/.zshrc && exec zsh"
+alias ztools-set3="sed -i 's/PPL.*/PPL3/g' ~/.zshrc && exec zsh"
+alias ztools-set4="sed -i 's/PPL.*/PPL4/g' ~/.zshrc && exec zsh"
+alias ztools-set5="sed -i 's/PPL.*/PPL5/g' ~/.zshrc && exec zsh"
+
 # used to check for updates, displays on the screen and update the system
 function updates(){
 clear
@@ -83,7 +89,7 @@ function delete(){
 PacNews_Cache_PPL1(){
   cache=$(ls /var/cache/pacman/pkg | wc -l)
 
-  if [[ $cache > 100 ]]; then
+  if [[ $cache -gt 100 ]]; then
     echo "%F{#74a3c2}%K{#74a3c2}%F{#00FF00} %F{#121212}PacNews %f%F{#00FF00} %F{#121212}$cache cached packages%f %k%F{#74a3c2}%f"
   fi
 }
@@ -91,7 +97,7 @@ PacNews_Cache_PPL1(){
 PacNews_Cache_PPL3(){
   cache=$(ls /var/cache/pacman/pkg | wc -l)
 
-  if [[ $cache > 100 ]]; then
+  if [[ $cache -gt 100 ]]; then
     echo -e " %F{#FF0000}─(%f%F{#00ff00} %f PacNews %f%F{#00ff00} $cache %F{#FFFFFF}cached packages%f%F{#FF0000})─%f"
   fi
 }
@@ -99,7 +105,7 @@ PacNews_Cache_PPL3(){
 PacNews_Cache_PPL4(){
   cache=$(ls /var/cache/pacman/pkg | wc -l)
 
-  if [[ $cache > 100 ]]; then
+  if [[ $cache -gt 100 ]]; then
     echo -e "%K{#FFFFFF}%F{#00FF00}  %F{#121212}PacNews %f%F{#00ff00}  $cache %F{#121212}cached packages%f%k%F{#FFFFFF}%K{#121212} %k%f"
   fi
 }
@@ -107,7 +113,7 @@ PacNews_Cache_PPL4(){
 PacNews_Cache_PPL5(){
   cache=$(ls /var/cache/pacman/pkg | wc -l)
 
-  if [[ $cache > 100 ]]; then
+  if [[ $cache -gt 100 ]]; then
     echo -e "%F{#4b45ff}──┤%f %F{#00FF00}%f PacNews %F{#00ff00}  $cache %F{#FFFFFF}cached packages %f"
   fi
 }
