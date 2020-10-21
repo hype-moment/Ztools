@@ -48,6 +48,49 @@ Push(){
 }
 
 #=====
+# PPL2
+#=====
+
+Git-Status_PPL2(){
+
+GitDir(){
+gitdir=$(git rev-parse --is-inside-work-tree 2>/dev/null)
+
+if [[ $gitdir = true ]]; then
+  echo -e "%F{#FFFFFF}%f%F{#FF0000}   %F{#0c81ff}Master%f"
+fi
+}
+
+Modify(){
+sts1=$(git status 2>/dev/null | grep modified | awk '{print $1}')
+
+    if [[ $sts1 = modified: ]]; then
+        echo "%F{#F12345} 🆕%f"
+    fi
+}
+
+Commit(){
+    num_modify=$(git status 2> /dev/null | grep modified: | wc -l)
+    sts2=$(git status 2>/dev/null | grep "changes added" | wc -l)
+
+    if [[ $sts2 = 1 ]]; then
+      echo "%F{#FFF000}🆙%f (%F{#FF0000}$num_modify%f) for%f %F{#00ab00}add%f and %F{#0078ab}commit%f"
+    fi
+}
+
+Push(){
+  sts3=$(git status 2>/dev/null | grep 'use "git push"' | sed -n 1p | wc -l)
+
+  if [[ $sts3 = 1 ]]; then
+    echo -e "%F{#F34567}🔝%fpush"
+  fi
+}
+
+  echo -e "$(GitDir)$(Modify)$(Commit)$(Push)"
+
+}
+
+#=====
 # PPL3
 #=====
 

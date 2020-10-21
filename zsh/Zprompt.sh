@@ -46,23 +46,23 @@ Distro_Wm_Icon(){
 distroname="arch" #$(uname -n | sed 's/linux//g;s/[-"_]//g')
 
 if [[ $distroname = arch ]]; then
-  echo -e "%F{#0c81ff} %f"
+  echo -e "%F{#0c81ff}%f"
 elif [[ $distroname = debian ]]; then
-  echo -e "%F{#ff2f5c} %f"
+  echo -e "%F{#ff2f5c}%f"
 elif [[ $distroname = ubuntu ]]; then
-  echo -e "%F{#ff5d0c} %f"
+  echo -e "%F{#ff5d0c}%f"
 elif [[ $distroname = fedora ]]; then
-  echo -e "%F{#3a65ff} %f"
+  echo -e "%F{#3a65ff}%f"
 elif [[ $distroname = slackware ]]; then
-  echo -e "%F{#3a65ff}  %f"
+  echo -e "%F{#3a65ff} %f"
 elif [[ $distroname = opensuse ]]; then
-  echo -e "%F{#55ff7f}  %f"
+  echo -e "%F{#55ff7f} %f"
 elif [[ $distroname = manjaro ]]; then
-  echo -e "%F{#008820}  %f"
+  echo -e "%F{#008820} %f"
 elif [[ $distroname = gentoo ]]; then
-  echo -e "%F{#693494}  %f"
+  echo -e "%F{#693494} %f"
 elif [[ $distroname = gentoo ]]; then
-  echo -e "%F{#55ff7f}  %f"
+  echo -e "%F{#55ff7f} %f"
 fi
 }
 
@@ -99,8 +99,8 @@ function PPL1(){
 }
 
 function PPL2(){
-  RPS1='$(PacNews_Cache)'
-  PS1='%K{#0000ff} $User %k%F{#0000ff}%K{#3a54ff} %K{#3a54ff}%f $(GetHome)%F{#3a54ff}%K{#6b7fff} %k%k%f%F{#232323}%K{#6b7fff} %~ %k%f%F{#6b7fff} %f '
+  RPS1='$(GetHome)%k%~ $(Git-Status_PPL2)'
+  PS1='%F{#aa007f}%f%F{#ff00bf} %n%f%F{#FF0000}@%f%F{#0c81ff}%m%f $(Distro_Wm_Icon)  %(!.#.$) '
 }
 
 function PPL3(){
